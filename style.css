@@ -1,0 +1,814 @@
+/* =========================================================
+   FLEX SMART — TREINAMENTO
+   Identidade visual:
+   Azul:  #040c44
+   Verde: #6c8414
+   Fundo: #eaecf3
+========================================================= */
+
+:root {
+  --navy: #040c44;
+  --navy-soft: #0b1654;
+  --navy-fade: #e7e9f3;
+
+  --green: #6c8414;
+  --green-dark: #566a0f;
+  --green-soft: #edf2dc;
+
+  --background: #eaecf3;
+  --surface: #ffffff;
+  --surface-soft: #f5f6fa;
+
+  --text: #10162f;
+  --muted: #6b7082;
+  --border: #d9dce7;
+
+  --shadow-sm: 0 8px 24px rgba(4, 12, 68, 0.06);
+  --shadow-md: 0 14px 34px rgba(4, 12, 68, 0.10);
+
+  --radius-lg: 20px;
+  --radius-md: 15px;
+  --radius-sm: 11px;
+
+  --transition: 0.22s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding-top: 76px;
+  background: var(--background);
+  color: var(--text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  max-width: 1180px;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.custom-navbar {
+  min-height: 76px;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(4, 12, 68, 0.07);
+  box-shadow: 0 5px 20px rgba(4, 12, 68, 0.045);
+  backdrop-filter: blur(14px);
+}
+
+.navbar-brand {
+  padding: 0;
+}
+
+.brand-logo {
+  width: auto;
+  height: 58px;
+  display: block;
+  object-fit: contain;
+}
+
+.menu-button {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 12px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 1.55rem;
+  transition: var(--transition);
+}
+
+.menu-button:hover {
+  background: var(--green);
+  transform: translateY(-1px);
+}
+
+.menu-button:focus-visible {
+  outline: 3px solid rgba(108, 132, 20, 0.25);
+  outline-offset: 3px;
+}
+
+.offcanvas {
+  width: min(340px, 88vw) !important;
+  background: var(--surface);
+}
+
+.offcanvas-header {
+  padding: 24px 22px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.offcanvas-title {
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.menu-eyebrow {
+  color: var(--green);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.offcanvas-body {
+  padding: 18px;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  color: var(--navy);
+  font-weight: 750;
+  transition: var(--transition);
+}
+
+.menu-links a i {
+  width: 24px;
+  color: var(--green);
+  font-size: 1.08rem;
+}
+
+.menu-links a:hover {
+  background: var(--green-soft);
+  color: var(--navy);
+}
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.hero-section {
+  padding: 30px 0 12px;
+}
+
+.hero-content {
+  max-width: 780px;
+}
+
+.hero-content h1 {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 13px;
+  color: var(--navy);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  font-weight: 850;
+}
+
+.hero-content h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--green);
+}
+
+/* =========================================================
+   PROGRESSO GERAL
+========================================================= */
+
+.progress-summary-section {
+  padding: 20px 0 0;
+}
+
+.progress-summary-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 34px;
+  align-items: center;
+  padding: 23px 26px;
+  border-radius: var(--radius-lg);
+  background: var(--navy);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.mini-label {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: #b7d13e;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.progress-summary-text h2 {
+  margin: 0 0 5px;
+  color: #fff;
+  font-size: 1.38rem;
+  font-weight: 820;
+  letter-spacing: -0.025em;
+}
+
+.progress-summary-text p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.overall-progress-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.86rem;
+}
+
+.overall-progress-top strong {
+  font-weight: 700;
+}
+
+.overall-progress-top span {
+  min-width: 48px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(108, 132, 20, 0.22);
+  color: #c7df52;
+  text-align: center;
+  font-weight: 850;
+}
+
+.overall-progress-bar {
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+
+.overall-progress-bar .progress-bar {
+  border-radius: 999px;
+  background: var(--green);
+  transition: width 0.35s ease;
+}
+
+/* =========================================================
+   MÓDULOS
+========================================================= */
+
+.modules-section {
+  padding: 28px 0 46px;
+}
+
+.section-heading {
+  margin: 0;
+}
+
+#modulesGrid {
+  row-gap: 22px !important;
+}
+
+.module-card {
+  position: relative;
+  height: 100%;
+  min-height: 274px;
+  display: flex;
+  flex-direction: column;
+  padding: 21px;
+  overflow: hidden;
+  border: 1px solid rgba(4, 12, 68, 0.08);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.module-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--navy) 0 70%, var(--green) 70% 100%);
+}
+
+.module-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(108, 132, 20, 0.38);
+  box-shadow: var(--shadow-md);
+}
+
+.module-card:focus-visible {
+  outline: 3px solid rgba(108, 132, 20, 0.22);
+  outline-offset: 3px;
+}
+
+.module-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.module-icon {
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 1.17rem;
+  box-shadow: 0 7px 18px rgba(4, 12, 68, 0.14);
+}
+
+.module-number {
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+}
+
+.module-card h3 {
+  margin: 28px 0 7px;
+  color: var(--navy);
+  font-size: 1.24rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  font-weight: 830;
+}
+
+.module-card > p {
+  min-height: 48px;
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.module-card-footer {
+  margin-top: auto;
+}
+
+.module-progress-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.module-progress-info strong {
+  color: var(--navy);
+  font-weight: 750;
+}
+
+.module-progress-bar {
+  height: 7px;
+  border-radius: 999px;
+  background: #e8eadf;
+}
+
+.module-progress-bar .progress-bar {
+  border-radius: 999px;
+  background: var(--green);
+  transition: width 0.35s ease;
+}
+
+.module-open-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  color: var(--navy);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.module-open-link i {
+  color: var(--green);
+  font-size: 1rem;
+  transition: transform var(--transition);
+}
+
+.module-card:hover .module-open-link i {
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   MODAL DOS MÓDULOS
+========================================================= */
+
+.modal-backdrop.show {
+  opacity: 0.58;
+}
+
+.modal-content {
+  overflow: hidden;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 30px 90px rgba(4, 12, 68, 0.24);
+}
+
+.training-modal {
+  background: var(--surface-soft);
+}
+
+.training-modal .modal-header {
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+
+.training-modal .modal-body {
+  padding: 20px 22px 22px;
+}
+
+.modal-module-number,
+.video-eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--green);
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.modal-title {
+  color: var(--navy);
+  font-weight: 820;
+}
+
+.module-description {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.lessons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lesson-item {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  transition: var(--transition);
+}
+
+.lesson-item.completed {
+  border-color: rgba(108, 132, 20, 0.35);
+  background: #fbfcf6;
+  box-shadow: inset 3px 0 0 var(--green);
+}
+
+.lesson-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px 15px;
+}
+
+.lesson-title-area {
+  min-width: 0;
+}
+
+.lesson-number {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--green);
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.lesson-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: var(--navy);
+  font-size: 0.93rem;
+  font-weight: 780;
+}
+
+.lesson-expand {
+  padding: 2px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  transition: transform var(--transition);
+}
+
+.lesson-expand[aria-expanded="true"] {
+  transform: rotate(180deg);
+}
+
+.play-button {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 11px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.play-button:hover {
+  background: var(--green);
+  transform: translateY(-1px);
+}
+
+.lesson-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+
+.lesson-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+
+.lesson-check span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.lesson-details {
+  padding: 0 15px 14px;
+}
+
+.lesson-details-inner {
+  padding: 12px 13px;
+  border-radius: 10px;
+  background: var(--background);
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.lesson-details-inner strong {
+  color: var(--navy);
+}
+
+/* =========================================================
+   MODAL DE VÍDEO
+========================================================= */
+
+.video-modal-content {
+  background: #020725;
+  color: #fff;
+}
+
+.video-modal-content .modal-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.video-modal-content .modal-title {
+  color: #fff;
+}
+
+.video-modal-content .btn-close {
+  filter: invert(1);
+}
+
+.video-modal-content .modal-body {
+  padding: 18px;
+}
+
+.video-frame-wrapper {
+  overflow: hidden;
+  border-radius: 14px;
+  background: #000;
+}
+
+.video-frame-wrapper iframe {
+  border: 0;
+}
+
+.video-placeholder {
+  min-height: 360px;
+  padding: 34px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.035);
+  text-align: center;
+}
+
+.video-placeholder-icon {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 15px;
+  border-radius: 16px;
+  background: rgba(108, 132, 20, 0.20);
+  color: #c1d84d;
+  font-size: 1.35rem;
+}
+
+.video-placeholder h3 {
+  margin: 0 0 7px;
+  font-size: 1.08rem;
+}
+
+.video-placeholder p {
+  max-width: 540px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media (max-width: 991.98px) {
+  .progress-summary-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .custom-navbar {
+    min-height: 70px;
+  }
+
+  .brand-logo {
+    height: 50px;
+  }
+
+  .menu-button {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero-section {
+    padding: 24px 0 8px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .progress-summary-section {
+    padding-top: 16px;
+  }
+
+  .progress-summary-card {
+    padding: 19px;
+    border-radius: 17px;
+  }
+
+  .progress-summary-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .modules-section {
+    padding: 24px 0 36px;
+  }
+
+  #modulesGrid {
+    row-gap: 17px !important;
+  }
+
+  .module-card {
+    min-height: 250px;
+    padding: 19px;
+    border-radius: 17px;
+  }
+
+  .module-card h3 {
+    margin-top: 23px;
+  }
+
+  .lesson-main {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .lesson-check {
+    grid-column: 1 / -1;
+  }
+
+  .training-modal .modal-header,
+  .training-modal .modal-body {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .video-placeholder {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .overall-progress-top {
+    align-items: flex-start;
+  }
+
+  .module-card > p {
+    min-height: auto;
+  }
+}
+
+
+/* =========================================================
+   FUNDO DESFOCADO AO ABRIR MODAL
+========================================================= */
+
+body.modal-open main,
+body.modal-open .custom-navbar {
+  filter: blur(6px);
+  transition: filter 0.2s ease;
+}
+
+main,
+.custom-navbar {
+  transition: filter 0.2s ease;
+}
+
+/* deixa o backdrop um pouco mais elegante junto com o blur */
+.modal-backdrop.show {
+  opacity: 0.42;
+  background: #040c44;
+}
