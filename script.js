@@ -446,11 +446,16 @@ const overallProgressText = document.getElementById("overallProgressText");
 const overallProgressPercent = document.getElementById("overallProgressPercent");
 const overallProgressBar = document.getElementById("overallProgressBar");
 
+const trainingSearch = document.getElementById("trainingSearch");
+const clearSearch = document.getElementById("clearSearch");
+const navbarSearch = document.querySelector(".navbar-search");
+
 const STORAGE_KEY = "flexmart-training-progress-v1";
 
 let activeModuleId = null;
 let pendingVideoLesson = null;
 let reopenModuleAfterVideo = false;
+let currentSearchTerm = "";
 
 /* =========================================================
    LOCAL STORAGE
@@ -544,10 +549,53 @@ function updateOverallProgress() {
    CARDS DOS MÓDULOS
 ========================================================= */
 
+function normalizeSearchText(value = "") {
+  return value
+    .toString()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
+function moduleMatchesSearch(module, searchTerm) {
+  if (!searchTerm) return true;
+
+  const searchableContent = [
+    module.number,
+    module.title,
+    module.description,
+    ...module.lessons.flatMap((lesson) => [
+      lesson.title,
+      lesson.screen,
+      lesson.description
+    ])
+  ].join(" ");
+
+  return normalizeSearchText(searchableContent).includes(searchTerm);
+}
+
 function renderModules() {
   modulesGrid.innerHTML = "";
 
-  trainingModules.forEach((module, index) => {
+  const filteredModules = trainingModules.filter((module) =>
+    moduleMatchesSearch(module, currentSearchTerm)
+  );
+
+  if (filteredModules.length === 0) {
+    modulesGrid.innerHTML = `
+      <div class="col-12">
+        <div class="search-empty-state">
+          <i class="bi bi-search"></i>
+          <h3>Nenhum treinamento encontrado</h3>
+          <p>Tente pesquisar por outro nome, aula ou código de tela.</p>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  filteredModules.forEach((module, index) => {
     const { total, completed, percent } = getModuleProgress(module);
 
     const column = document.createElement("div");
@@ -798,6 +846,37 @@ videoModalElement.addEventListener("hidden.bs.modal", () => {
     reopenModuleAfterVideo = false;
     openModule(activeModuleId);
   }
+});
+
+/* =========================================================
+   PESQUISA
+========================================================= */
+
+function updateSearch() {
+  currentSearchTerm = normalizeSearchText(trainingSearch.value);
+
+  navbarSearch.classList.toggle(
+    "has-value",
+    trainingSearch.value.trim().length > 0
+  );
+
+  renderModules();
+}
+
+trainingSearch.addEventListener("input", updateSearch);
+
+trainingSearch.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    trainingSearch.value = "";
+    updateSearch();
+    trainingSearch.blur();
+  }
+});
+
+clearSearch.addEventListener("click", () => {
+  trainingSearch.value = "";
+  updateSearch();
+  trainingSearch.focus();
 });
 
 /* =========================================================
